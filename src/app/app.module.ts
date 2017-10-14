@@ -1,4 +1,4 @@
-import { DropdownDirective } from './shared/dropdown-directive';
+import { RecipeService } from './servces/recipe.service';
 
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,7 +21,6 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
     AppComponent,
   
     HeaderComponent,
-    DropdownDirective,
     RecipesComponent,
     RecipeListComponent,
     RecipeDetailComponent,
@@ -37,7 +36,9 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
     NgbModule.forRoot(),
     
   ],
-  providers: [],
+  providers: [
+    RecipeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
