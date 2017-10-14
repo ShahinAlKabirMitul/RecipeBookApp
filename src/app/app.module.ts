@@ -1,3 +1,4 @@
+import { ShoppingListService } from './servces/shopping-list.service';
 import { RecipeService } from './servces/recipe.service';
 
 import { FormsModule } from '@angular/forms';
@@ -37,7 +38,8 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
     
   ],
   providers: [
-    RecipeService
+    RecipeService,
+    ShoppingListService,
   ],
   bootstrap: [AppComponent]
 })
