@@ -1,3 +1,4 @@
+
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -16,6 +17,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 @NgModule({
   declarations: [
     AppComponent,
+   
     HeaderComponent,
     RecipesComponent,
     RecipeListComponent,
@@ -29,6 +31,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
   imports: [
     BrowserModule,
     FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
