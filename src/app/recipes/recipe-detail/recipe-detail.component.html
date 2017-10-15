@@ -36,6 +36,10 @@
 </div>
 <div class="row">
   <div class="col-xl-12">
-    Ingredents
+    <ul class="list-group">
+       <li class="list-group-item" *ngFor="let r of recipe.ingredients">
+          {{r.name}} - {{r.amount}}
+       </li>
+    </ul>
   </div>
 </div>
