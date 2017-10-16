@@ -15,12 +15,12 @@
         Manage Receipe
         <span class="caret"></span>
       </button>
-      <ul ngbDropdownMenu  class="dropdown-menu">
+      <ul ngbDropdownMenu  class="dropdown-menu pointer">
         <li class="pointer">
           <a (click)="onAddToShoppingList()" >Add Ingredents to Shopping List </a>
         </li>
         <li>
-          <a >Edit Recipe</a>
+          <a (click)="onEditClick()" >Edit Recipe</a>
         </li>
         <li>
           <a >Delete Recipe</a>
