@@ -7,8 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'RecipeBookApp';
-  lodedFeature='recipe';
-  onNavigate(featere:string){
-    this.lodedFeature=featere;
-  }
+  
+  
 }
