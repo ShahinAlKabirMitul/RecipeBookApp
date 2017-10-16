@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { ShoppingListService } from './servces/shopping-list.service';
 import { RecipeService } from './servces/recipe.service';
 
@@ -35,6 +36,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
     BrowserModule,
     FormsModule,
     NgbModule.forRoot(),
+    AppRoutingModule,
     
   ],
   providers: [
