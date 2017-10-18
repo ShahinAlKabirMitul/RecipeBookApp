@@ -17,11 +17,17 @@ export class ShoppingListService {
     return this.ingredients.slice();
   }
   save(ing:Ingredient){
+    
     this.ingredients.push(ing);
     this.ingredientChanged.next(this.ingredients.slice());
   }
   addIngredients( ing:Ingredient[] ){
     this.ingredients.push(...ing);
+    this.ingredientChanged.next(this.ingredients.slice());
+
+  }
+  edit(ing:Ingredient,index:number){
+    this.ingredients[index]=ing;
     this.ingredientChanged.next(this.ingredients.slice());
 
   }
