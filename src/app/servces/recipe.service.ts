@@ -36,4 +36,5 @@ export class RecipeService {
     this.shoppingService.addIngredients(ing);
 
   }
+  
 }

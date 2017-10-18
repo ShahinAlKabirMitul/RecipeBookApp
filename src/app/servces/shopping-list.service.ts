@@ -5,6 +5,7 @@ import {  Injectable } from '@angular/core';
 @Injectable()
 export class ShoppingListService {
   public ingredientChanged=new Subject<Ingredient[]>(); 
+  public startEditing=new Subject<number>();
   private ingredients:Ingredient[]=[
     new Ingredient('Apple',5),
     new Ingredient('Orange',55),
@@ -23,5 +24,8 @@ export class ShoppingListService {
     this.ingredients.push(...ing);
     this.ingredientChanged.next(this.ingredients.slice());
 
+  }
+  getIngredientnyId(index:number){
+    return this.ingredients[index];
   }
 }
