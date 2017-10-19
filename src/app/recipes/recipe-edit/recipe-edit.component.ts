@@ -1,3 +1,6 @@
+import { FormGroup,FormControl } from '@angular/forms';
+import { RecipeService } from './../../servces/recipe.service';
+
 import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,9 +10,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-edit.component.css']
 })
 export class RecipeEditComponent implements OnInit {
- id:number;
+ recipeForm:FormGroup;
+  id:number;
  editMode=false;
-  constructor(private route:ActivatedRoute) {
+  constructor(private route:ActivatedRoute,private recipeService:RecipeService) {
 
    }
 
@@ -17,8 +21,29 @@ export class RecipeEditComponent implements OnInit {
     this.route.params.subscribe((parms:Params)=>{
       this.id=parms['id'];
       this.editMode=parms['id']!=null;
-      console.log(this.editMode);
+      this.initForm();
     })
   }
+  onSubmit(){
+   console.log(this.recipeForm); 
+  }
+ private initForm(){
+   let recipeName='';
+   let recipeImagePath='';
+   let recipeDescription='';
+   if(this.editMode){
+     const recipe=this.recipeService.getRecipeById(this.id);
+     recipeName=recipe.name;
+     recipeImagePath=recipe.imagePath;
+     recipeDescription=recipe.description;
+   }  
 
+   this.recipeForm = new FormGroup({
+     'name':new FormControl(recipeName),
+     'recipeImagePath':new FormControl(recipeImagePath),
+     'recipeDescription':new FormControl(recipeDescription)
+   });
+   
+
+ }
 }
