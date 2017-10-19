@@ -47,13 +47,18 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xl-12">
-          <div class="row">
+        <div class="col-xl-12" formArrayName="ingredients">
+          <div class="row"
+            *ngFor="let ingredientContol of recipeForm.get('ingredients').controls;let i=index "
+            [formGroupName]="i">
             <div class="col-xl-8">
-              <input type="text" class="form-control">
+              <input type="text" 
+               formControlName="name" 
+              class="form-control">
             </div>
             <div class="col-xl-2">
-              <input type="text" class="form-control">
+              <input type="text"  formControlName="amount" 
+               class="form-control">
             </div>
             <div class="col-xl-2">
               <button class="btn btn-danger">X</button>
