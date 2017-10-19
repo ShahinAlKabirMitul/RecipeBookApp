@@ -28,27 +28,37 @@ export class RecipeEditComponent implements OnInit {
   onSubmit(){
    console.log(this.recipeForm); 
   }
- private initForm(){
-   let recipeName='';
-   let recipeImagePath='';
-   let recipeDescription='';
-   let recipeIngedients=new FormArray([]);
-   if(this.editMode){
-     const recipe=this.recipeService.getRecipeById(this.id);
-     recipeName=recipe.name;
-     recipeImagePath=recipe.imagePath;
-     recipeDescription=recipe.description;
-    
-     if(recipe['ingredients']){
-       for(let ing of recipe.ingredients){
-        recipeIngedients.push(
-          new FormGroup({
-            'name':new FormControl(ing.name),
-            'amount':new FormControl(ing.amount)
-          })
-        );
-       }
-     }
+
+  addIngredient(){
+    (<FormArray> this.recipeForm.get('ingredients')).push(
+      new FormGroup({
+        'name':new FormControl(),
+        'amount':new FormControl()
+      })
+    )
+  }
+
+  private initForm(){
+    let recipeName='';
+    let recipeImagePath='';
+    let recipeDescription='';
+    let recipeIngedients=new FormArray([]);
+    if(this.editMode){
+      const recipe=this.recipeService.getRecipeById(this.id);
+      recipeName=recipe.name;
+      recipeImagePath=recipe.imagePath;
+      recipeDescription=recipe.description;
+      
+      if(recipe['ingredients']){
+        for(let ing of recipe.ingredients){
+          recipeIngedients.push(
+            new FormGroup({
+              'name':new FormControl(ing.name),
+              'amount':new FormControl(ing.amount)
+            })
+          );
+        }
+      }
 
    }  
 

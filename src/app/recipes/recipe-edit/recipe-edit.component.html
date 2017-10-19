@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xl-12">
-    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()" >
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-xl-12">
           <button type="submit" class="btn btn-success">Save</button>
@@ -11,10 +11,7 @@
         <div class="col-xl-12">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" 
-              id="name"
-              formControlName="name"
-              class="form-control">
+            <input type="text" id="name" formControlName="name" class="form-control">
           </div>
         </div>
       </div>
@@ -23,9 +20,7 @@
         <div class="col-xl-12">
           <div class="form-group">
             <label for="recipeImagePath">Image Url</label>
-            <input type="text" id="recipeImagePath" 
-            formControlName="recipeImagePath"
-            class="form-control">
+            <input type="text" id="recipeImagePath" formControlName="recipeImagePath" class="form-control">
           </div>
         </div>
       </div>
@@ -40,28 +35,28 @@
         <div class="col-xl-12">
           <div class="form-group">
             <label for="recipeDescription">Description</label>
-            <textarea name="recipeDescription" 
-            formControlName="recipeDescription"
-            id="recipeDescription" rows="6" class="form-control"></textarea>
+            <textarea name="recipeDescription" formControlName="recipeDescription" id="recipeDescription" rows="6" class="form-control"></textarea>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xl-12" formArrayName="ingredients">
-          <div class="row"
-            *ngFor="let ingredientContol of recipeForm.get('ingredients').controls;let i=index "
-            [formGroupName]="i">
+          <div class="row" *ngFor="let ingredientContol of recipeForm.get('ingredients').controls;let i=index " [formGroupName]="i"
+            style="margin-top: 10px">
             <div class="col-xl-8">
-              <input type="text" 
-               formControlName="name" 
-              class="form-control">
+              <input type="text" formControlName="name" class="form-control">
             </div>
             <div class="col-xl-2">
-              <input type="text"  formControlName="amount" 
-               class="form-control">
+              <input type="text" formControlName="amount" class="form-control">
             </div>
             <div class="col-xl-2">
               <button class="btn btn-danger">X</button>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xl-12">
+              <button class="btn btn-success" type="button" (click)="addIngredient()" >Add Ingredient</button>
             </div>
           </div>
 
