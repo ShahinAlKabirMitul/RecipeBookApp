@@ -6,7 +6,7 @@
             <label for="name">Name</label>
             <input #name="ngModel" 
                 name="name"
-                [(ngModel)]="ing.name"
+                ngModel
                 type="text" 
                 class="form-control" required 
               >
@@ -18,7 +18,7 @@
             <input 
                 #amount="ngModel"
                 name="amount" 
-                [(ngModel)]="ing.amount" 
+                ngModel
                 type="number"
                 class="form-control" required
                 pattern="^[1-9]+[0-9]*$"
