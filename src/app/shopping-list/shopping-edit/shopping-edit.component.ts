@@ -1,10 +1,12 @@
 
 
-import { NgForm } from '@angular/forms/src/directives';
+
+
 import { Subscription } from 'rxjs/Rx';
 import { ShoppingListService } from '../../servces/shopping-list.service';
 import { Ingredient } from '../../models/indredient.model';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -12,6 +14,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit,OnDestroy {
+  @ViewChild('f')slform:NgForm;
   subscription:Subscription;
   editMode=false;
   editItemIdex:number;
@@ -41,4 +44,9 @@ export class ShoppingEditComponent implements OnInit,OnDestroy {
     form.reset();
     this.editMode=false;
   }
+  clear(){
+    this.slform.reset();
+    this.editMode=false;
+  }
 }
+
