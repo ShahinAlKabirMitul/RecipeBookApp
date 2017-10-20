@@ -3,7 +3,7 @@ import { Recipe } from '../../models/recipe.model';
 import { FormArray, FormControl, FormGroup, Validator, Validators } from '@angular/forms';
 import { RecipeService } from './../../servces/recipe.service';
 
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -13,9 +13,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeEditComponent implements OnInit {
  recipeForm:FormGroup;
-  id:number;
+ id:number;
  editMode=false;
-  constructor(private route:ActivatedRoute,private recipeService:RecipeService) {
+  constructor(private route:ActivatedRoute,private recipeService:RecipeService,private router:Router) {
 
    }
 
@@ -47,7 +47,9 @@ export class RecipeEditComponent implements OnInit {
       })
     )
   }
-
+  onCancel(){
+    this.router.navigate(['../']);
+  }
   private initForm(){
     let recipeName='';
     let recipeImagePath='';

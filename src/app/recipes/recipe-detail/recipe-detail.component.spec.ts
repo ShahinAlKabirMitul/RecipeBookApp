@@ -23,3 +23,4 @@ describe('RecipeDetailComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

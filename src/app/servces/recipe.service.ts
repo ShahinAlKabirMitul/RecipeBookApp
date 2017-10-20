@@ -7,7 +7,7 @@ import {  Injectable } from '@angular/core';
 @Injectable()
 export class RecipeService {
  public recipeSelect=new Subject<Recipe>();
- recipeCjamged=new Subject<Recipe[]>();
+ recipeChanged=new Subject<Recipe[]>();
  constructor(private shoppingService:ShoppingListService){}
  private recipes:Recipe[]=[
     new Recipe('Fried chicken ',
@@ -39,11 +39,15 @@ export class RecipeService {
   }
   addRecipe(recipe:Recipe){
     this.recipes.push(recipe);
-    this.recipeCjamged.next(this.recipes.slice());
+    this.recipeChanged.next(this.recipes.slice());
   }
   UpdateRecipe(index:number,recipe:Recipe){
     this.recipes[index]=recipe;
-    this.recipeCjamged.next(this.recipes.slice());
+    this.recipeChanged.next(this.recipes.slice());
+  }
+  deleteRecipe(index:number){
+    this.recipes.splice(index,1);
+    this.recipeChanged.next(this.recipes.slice());
   }
   
 }
