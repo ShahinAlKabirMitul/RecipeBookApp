@@ -7,6 +7,7 @@ import {  Injectable } from '@angular/core';
 @Injectable()
 export class RecipeService {
  public recipeSelect=new Subject<Recipe>();
+ recipeCjamged=new Subject<Recipe[]>();
  constructor(private shoppingService:ShoppingListService){}
  private recipes:Recipe[]=[
     new Recipe('Fried chicken ',
@@ -35,6 +36,14 @@ export class RecipeService {
   addRecipeIngedientsToShoppingList(ing:Ingredient[]){
     this.shoppingService.addIngredients(ing);
 
+  }
+  addRecipe(recipe:Recipe){
+    this.recipes.push(recipe);
+    this.recipeCjamged.next(this.recipes.slice());
+  }
+  UpdateRecipe(index:number,recipe:Recipe){
+    this.recipes[index]=recipe;
+    this.recipeCjamged.next(this.recipes.slice());
   }
   
 }
