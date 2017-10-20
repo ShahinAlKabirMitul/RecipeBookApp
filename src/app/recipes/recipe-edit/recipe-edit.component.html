@@ -20,14 +20,14 @@
         <div class="col-xl-12">
           <div class="form-group">
             <label for="recipeImagePath">Image Url</label>
-            <input type="text" id="recipeImagePath" formControlName="recipeImagePath" class="form-control">
+            <input type="text" id="recipeImagePath" formControlName="imagePath" #imagePath class="form-control">
           </div>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xl-12">
-          <img src="" alt="" class="img-responsive">
+          <img [src]="imagePath.value" class="img-responsive">
         </div>
       </div>
 
@@ -35,7 +35,7 @@
         <div class="col-xl-12">
           <div class="form-group">
             <label for="recipeDescription">Description</label>
-            <textarea name="recipeDescription" formControlName="recipeDescription" id="recipeDescription" rows="6" class="form-control"></textarea>
+            <textarea name="recipeDescription" formControlName="description" id="recipeDescription" rows="6" class="form-control"></textarea>
           </div>
         </div>
       </div>
