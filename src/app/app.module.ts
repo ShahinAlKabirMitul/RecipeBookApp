@@ -1,3 +1,5 @@
+import { DatabaseServiceService } from './database-service.service';
+import { Http, HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ShoppingListService } from './servces/shopping-list.service';
 import { RecipeService } from './servces/recipe.service';
@@ -20,6 +22,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +36,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     ShoppingEditComponent,
     RecipeStartComponent,
     RecipeEditComponent,
+  
 
 
   ],
@@ -42,11 +46,13 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     ReactiveFormsModule,
     NgbModule.forRoot(),
     AppRoutingModule,
+    HttpModule
     
   ],
   providers: [
     RecipeService,
     ShoppingListService,
+    DatabaseServiceService
   ],
   bootstrap: [AppComponent]
 })

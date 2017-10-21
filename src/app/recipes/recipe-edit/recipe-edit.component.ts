@@ -1,21 +1,26 @@
+import { Subscription } from 'rxjs/Rx';
 import { Recipe } from '../../models/recipe.model';
 
 import { FormArray, FormControl, FormGroup, Validator, Validators } from '@angular/forms';
 import { RecipeService } from './../../servces/recipe.service';
 
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-recipe-edit',
   templateUrl: './recipe-edit.component.html',
   styleUrls: ['./recipe-edit.component.css']
 })
-export class RecipeEditComponent implements OnInit {
+export class RecipeEditComponent implements OnInit,OnDestroy {
  recipeForm:FormGroup;
  id:number;
+ subscription:Subscription;
  editMode=false;
-  constructor(private route:ActivatedRoute,private recipeService:RecipeService,private router:Router) {
+  constructor(private route:ActivatedRoute,
+    private recipeService:RecipeService,
+    private router:Router,
+    ) {
 
    }
 
@@ -26,14 +31,21 @@ export class RecipeEditComponent implements OnInit {
       this.initForm();
     })
   }
+  ngOnDestroy(){
+
+  }
   onSubmit(){
    
-     console.log(this.recipeForm.value);
+   
       if(this.editMode){
         this.recipeService.UpdateRecipe(this.id,this.recipeForm.value);
       }
       else{
         this.recipeService.addRecipe(this.recipeForm.value);
+       
+        });
+        
+       
       }
     
   }

@@ -41,6 +41,7 @@ export class RecipeService {
     this.recipes.push(recipe);
     console.log(this.recipes);
     this.recipeChanged.next(this.recipes.slice());
+    
   }
   UpdateRecipe(index:number,recipe:Recipe){
     this.recipes[index]=recipe;
