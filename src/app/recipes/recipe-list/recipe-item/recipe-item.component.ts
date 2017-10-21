@@ -8,10 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./recipe-item.component.css']
 })
 export class RecipeItemComponent implements OnInit {
-  @Input('recipes')recipes:Recipe;
+  @Input('recipes')recipes : Recipe;
   @Input('index') index:number;
  
-  constructor() { }
+  constructor() { 
+    console.log("Receipe Item"+this.recipes);
+  }
 
   ngOnInit() {
   }

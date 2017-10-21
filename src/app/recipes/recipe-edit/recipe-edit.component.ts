@@ -43,7 +43,7 @@ export class RecipeEditComponent implements OnInit,OnDestroy {
       else{
         this.recipeService.addRecipe(this.recipeForm.value);
        
-        });
+      
         
        
       }

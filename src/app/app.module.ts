@@ -1,4 +1,5 @@
-import { DatabaseServiceService } from './database-service.service';
+import { DataStoregeService } from './data-storege.service';
+
 import { Http, HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ShoppingListService } from './servces/shopping-list.service';
@@ -52,7 +53,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
   providers: [
     RecipeService,
     ShoppingListService,
-    DatabaseServiceService
+    DataStoregeService
   ],
   bootstrap: [AppComponent]
 })

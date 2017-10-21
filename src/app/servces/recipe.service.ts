@@ -1,3 +1,4 @@
+
 import { Subject } from 'rxjs/Rx';
 import { ShoppingListService } from './shopping-list.service';
 import { Ingredient } from './../models/indredient.model';
@@ -36,6 +37,19 @@ export class RecipeService {
   addRecipeIngedientsToShoppingList(ing:Ingredient[]){
     this.shoppingService.addIngredients(ing);
 
+  }
+
+  setRecipe(recipes:any){
+  let recipesNew=[];
+   for(let r of recipes){
+ 
+    recipesNew.push(new Recipe(r['Name'],r['Description'],r['ImagePath'],r['Ingredients']))
+   }
+   
+
+    this.recipes=recipesNew;
+    // recipes.data['value'] as Recipe[]
+   this.recipeChanged.next(this.recipes.slice());
   }
   addRecipe(recipe:Recipe){
     this.recipes.push(recipe);

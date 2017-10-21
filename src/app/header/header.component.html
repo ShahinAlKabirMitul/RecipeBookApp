@@ -18,12 +18,12 @@
         <ul class="navbar-nav ">
            
             <li ngbDropdown  class="nav-item dropdown" >
-                <a ngbDropdownToggle class="nav-link dropdown-toggle"  href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a ngbDropdownToggle class="nav-link dropdown-toggle"   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  Manage
                 </a>
                 <div ngbDropdownMenu  class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Save Data</a>
-                  <a class="dropdown-item" href="#">Fetch Data</a>
+                  <a class="dropdown-item" (click)="Save()" >Save Data</a>
+                  <a class="dropdown-item" (click)="fetchData()" >Fetch Data</a>
                   
                 </div>
               </li>
