@@ -1,3 +1,4 @@
+import { DataStoregeService } from './../data-storege.service';
 
 import { Recipe } from './../models/recipe.model';
 import { Component, OnInit } from '@angular/core';
@@ -9,10 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipesComponent implements OnInit {
  
-  constructor() { }
+  constructor(private dbservice:DataStoregeService) { }
 
   ngOnInit() {
-   
+   this.dbservice.getRecipe();
   }
 
 }
