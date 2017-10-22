@@ -40,10 +40,18 @@ export class RecipeService {
   }
 
   setRecipe(recipes:any){
+  
   let recipesNew=[];
    for(let r of recipes){
- 
-    recipesNew.push(new Recipe(r['Name'],r['Description'],r['ImagePath'],r['Ingredients']))
+    
+    let ing:Ingredient[]=[];
+    
+    for(var i of r['Ingredients']){
+     ing.push( new Ingredient(i['Name'],i['Amount']) )
+    }
+
+    recipesNew.push(new Recipe(r['Name'],r['Description'],r['ImagePath'],ing ))
+
    }
    
 

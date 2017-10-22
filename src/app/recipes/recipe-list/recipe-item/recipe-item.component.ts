@@ -12,7 +12,7 @@ export class RecipeItemComponent implements OnInit {
   @Input('index') index:number;
  
   constructor() { 
-    console.log("Receipe Item"+this.recipes);
+    console.log("Receipe Item",this.recipes);
   }
 
   ngOnInit() {

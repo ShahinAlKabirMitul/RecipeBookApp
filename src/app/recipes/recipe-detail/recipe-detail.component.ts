@@ -19,7 +19,12 @@ export class RecipeDetailComponent implements OnInit {
       this.id=+s['id'];
       console.log(this.id);
       this.recipe=this.recipeServie.getRecipeById(this.id);
-      console.log(this.recipe);
+      console.log("Recipe Details",this.recipe);
+      
+      for(let r of this.recipe.ingredients){
+        console.log("Ing ",r);
+      }
+
     })
   }
   onAddToShoppingList(){
